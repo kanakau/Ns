@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+
+<p>
+  <strong>Availble Variants: <%= @product.product_variants.count %></strong>
+  
+
+</p>
+<% @product.product_variants.each do |variant| %>
+<p>
+  
+
+  <%= variant.color %>
+  <%= variant.size %>
+
+
+</p>
+<% end %>
+<div>
+  <%= link_to "Edit this product", edit_product_path(@product) %> |
+  <%= link_to "Back to products", products_path %>
+
+  <%= button_to "Destroy this product", @product, method: :delete %>
+</div>
